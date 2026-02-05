@@ -12,7 +12,7 @@ arr.forEach(button => {
         } else if(e.target.innerHTML == 'AC'){
             string = ""
             input.value = string
-        } else if(e.target.innerHTML == 'DEL'){
+        } else if( e.target.innerHTML == 'DEL'){
             string = string.substring(0, string.length - 1)
             input.value = string
         } else{
@@ -21,7 +21,13 @@ arr.forEach(button => {
                 return
             }
             string += e.target.innerHTML
-            input.value = string
+            if(string[0] == '*' || string[0] == '/' || string[0] == '%'){
+                string = "Syntax Error"
+                input.value = string
+            }else{
+                input.value = string
+            }
+            
         }
     })
 })
