@@ -16,6 +16,10 @@ arr.forEach(button => {
             string = string.substring(0, string.length - 1)
             input.value = string
         } else{
+            // Prevent adding to string if syntax error occurred
+            if(string === "Syntax Error"){
+                return
+            }
             // Prevent consecutive operators
             if(operators.includes(e.target.innerHTML) && operators.includes(string[string.length - 1])){
                 return
